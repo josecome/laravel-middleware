@@ -17,3 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/age_not_allowed', function(){
+    return '<h1>Age not Allowed!</h1>';
+})->name('age_not_allowed');
+
+Route::get('/page', function(Request $request){
+    return '<h1>You age is: ' . $request->input('age');
+})->middleware('Check_age');
